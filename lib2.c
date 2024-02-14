@@ -20,7 +20,6 @@ void main()
         }
         printf("--\n");
     }
-
     printf("\nМатрица 3х3:\n");
     for (i = 0; i < m; i++)
     {
@@ -30,7 +29,6 @@ void main()
         }
         printf("\n");
     }
-
     printf("\nСумма главной диагонали - %lf", (mat1[0][0]+mat1[1][1]+mat1[2][2]));
     printf("\nСумма побочной диагонали - %lf", (mat1[2][0]+mat1[1][1]+mat1[0][2]));
 
@@ -44,7 +42,6 @@ void main()
         }
         printf("--\n");
     }
-
     printf("\nМатрица 2х2:\n");
     for (i = 0; i < n; i++)
     {
@@ -54,7 +51,6 @@ void main()
         }
         printf("\n");
     }
-
     printf("\nКвадрат матрицы:\n");
     for(int i = 0; i < n; i++)
     {
