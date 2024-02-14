@@ -6,6 +6,7 @@ void main()
 { 
     double a, b, c, x, x1, x2, d;
     int end=1;
+    SetConsoleOutputCP(CP_UTF8);
     while (end!=0)
     {
         printf("Введите a: ");
