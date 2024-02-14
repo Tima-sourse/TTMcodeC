@@ -7,6 +7,7 @@ void main()
     double a, b, c, x, x1, x2, d;
     int end=1;
     SetConsoleOutputCP(CP_UTF8);
+    
     while (end!=0)
     {
         printf("Введите a: ");
@@ -27,9 +28,8 @@ void main()
         if (d == 0) 
             {x=((-b)/(2*a));
             printf("\nD=0\nx = %lf",x);}
-            
+         
         printf("\nЧтобы закрыть программу введите 0, или любую другую для продолжения\n>>");
-        scanf("%d", &end);
-        
+        scanf("%d", &end); 
     }
 }
