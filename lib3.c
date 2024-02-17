@@ -4,10 +4,11 @@
 #include <string.h>
 
 void main()
-{
+{   
+    SetConsoleOutputCP(CP_UTF8);
     int i, j;
     char str[81], a[2]="aA", b[2]="bB";
-    SetConsoleOutputCP(CP_UTF8);
+    
     
     printf("Введите строку - ");
     scanf("%s", &str);
