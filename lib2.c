@@ -2,16 +2,15 @@
 #include <math.h>
 #include <windows.h>
 #include <conio.h>
-
 void main()
-{   
-    int m=3, n=2, i, j, k;
-    int mat2[n] [n], square[n] [n];
-    double mat1[m] [m];
+{
     SetConsoleOutputCP(CP_UTF8);
+    int m = 3, n = 2, i, j, k;
+    int mat2[n][n], square[n][n];
+    double mat1[m][m], sum1 = 0, sum2 = 0;
 
-    printf("Найти диагонали матрицы 3х3:");
-    printf("\nВведите элементы матрицы построчно:\n");
+    printf("Найти диагонали матрицы 3х3:\n");
+    printf("Введите элементы матрицы построчно:\n");
     for (i = 0; i < m; i++)
     {
         for (j = 0; j < m; j++)
@@ -20,6 +19,7 @@ void main()
         }
         printf("--\n");
     }
+
     printf("\nМатрица 3х3:\n");
     for (i = 0; i < m; i++)
     {
@@ -29,8 +29,20 @@ void main()
         }
         printf("\n");
     }
-    printf("\nСумма главной диагонали - %lf", (mat1[0][0]+mat1[1][1]+mat1[2][2]));
-    printf("\nСумма побочной диагонали - %lf", (mat1[2][0]+mat1[1][1]+mat1[0][2]));
+
+    printf("\n");
+    for (i = 0; i < m; i++)
+    {
+        sum1 += mat1[i][i];
+    }
+    printf("Сумма главной диагонали - %lf", sum1);
+
+    printf("\n");
+    for (i = 0; i < m; i++)
+    {
+        sum2 += mat1[i][m-1-i];
+    }
+    printf("Сумма побочной диагонали - %lf", sum2);
 
     printf("\n\n###\n\nНайти квадрат матрицы 2х2:");
     printf("\nВведите элементы матрицы построчно:\n");
@@ -42,6 +54,7 @@ void main()
         }
         printf("--\n");
     }
+
     printf("\nМатрица 2х2:\n");
     for (i = 0; i < n; i++)
     {
@@ -51,19 +64,20 @@ void main()
         }
         printf("\n");
     }
+
     printf("\nКвадрат матрицы:\n");
-    for(int i = 0; i < n; i++)
+    for (i = 0; i < n; i++)
     {
         for (j = 0; j < n; j++)
+        {
+            square[i][j] = 0;
+            for (k = 0; k < n; k++)
             {
-                square[i][j] = 0;
-                for (k = 0; k<2; k++)
-                {
-                    square[i][j] += mat2[i][k] * mat2[k][j];
-                }
-                printf("%d ", square[i][j]);
+                square[i][j] += mat2[i][k] * mat2[k][j];
             }
-            printf("\n");
+            printf("%d ", square[i][j]);
+        }
+        printf("\n");
     }
     _getch();
 }
