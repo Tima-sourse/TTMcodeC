@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 #include <windows.h>
 #include <conio.h>
 void main()
