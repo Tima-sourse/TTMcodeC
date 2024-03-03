@@ -1,16 +1,17 @@
 #include <stdio.h>
 #include <windows.h>
 #include <math.h>
+#include <conio.h>
+
 int math1();
 int math2();
 int a, b, c, P, S;
-
 
 int main()
 {
     SetConsoleOutputCP(CP_UTF8);
     
-    printf("Введите длины сторон черех пробел: ");
+    printf("Введите длины сторон черех пробел: \n");
     scanf("%d %d %d", &a , &b , &c);
     
     if ((a + b > c) && (a + c > b) && (b + c > a))
