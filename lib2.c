@@ -17,6 +17,7 @@ void main()
             printf("Какого порядка матрица - ");
             scanf("%d", &m);
             double mat1[m][m];
+            
             printf("Введите элементы матрицы построчно:\n");
             for (i = 0; i < m; i++)
             {
