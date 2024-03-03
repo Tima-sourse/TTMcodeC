@@ -28,8 +28,7 @@ int main()
         printf("Треугольник не существует");
     }
 
-    
-    
+    _getch();
 }
 
 int math1()
