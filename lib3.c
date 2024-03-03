@@ -23,6 +23,6 @@ void main()
             str[i] = b[1];
         }
     }
-    printf("\n%s", str);
+    printf("\nСтрока с заменой - %s", str);
     _getch();
 }
