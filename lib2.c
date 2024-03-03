@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <windows.h>
-#include <conio.h>
+
 void main()
 {
     SetConsoleOutputCP(CP_UTF8);
