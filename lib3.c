@@ -14,13 +14,13 @@ void main()
         scanf("%s", &str);
         for (i = 0; i < strlen(str) ; i++)
         {
-            if (str[i] == a[0])
+            if (str[i] == 'a')
             {
-                str[i] = a[1];
+                str[i] = 'A';
             }
-            if (str[i] == b[0])
+            if (str[i] == 'b')
             {
-                str[i] = b[1];
+                str[i] = 'B';
             }
         }
         printf("\nСтрока с заменой - %s\n", str);
