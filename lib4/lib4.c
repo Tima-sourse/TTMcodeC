@@ -1,46 +1,29 @@
 #include <stdio.h>
 #include <windows.h>
-#include <math.h>
-#include <conio.h>
+#include "fun.h"
 
-int math1();
-int math2();
-int a, b, c, P, S;
+double a, b, c, P, S, p;
 
 int main()
 {
     SetConsoleOutputCP(CP_UTF8);
     
     printf("Введите длины сторон черех пробел: \n");
-    scanf("%d %d %d", &a , &b , &c);
+    scanf("%lf %lf %lf", &a , &b , &c);
     
     if ((a + b > c) && (a + c > b) && (b + c > a))
     { 
-        P = math1();
-        printf("Периметр треугольника - %d", P);
+        P = math1(a,b,c);
+        printf("Периметр треугольника - %lf", P);
 
         printf("\n");
 
-        S = math2();
-        printf("Площадь треугольника - %d", S);
+        S = math2(a,b,c);
+        printf("Площадь треугольника - %lf", S);
     }
     else 
     {
         printf("Треугольник не существует");
     }
-
-    _getch();
-}
-
-int math1()
-{
-    P = a + b + c;
-    return P;
-}
-
-int math2()
-{  
-    int p = P/2;
-    S = sqrt(p*(p-a)*(p-b)*(p-c));
-    return S;
+    return 0;
 }
