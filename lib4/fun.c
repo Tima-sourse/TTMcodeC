@@ -1,5 +1,5 @@
 #include <math.h>
-#include "fun.h"
+
 
 double math1(double a, double b, double c)
 {
