@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <windows.h>
-#include "fun.h"
+#include "fun.c"
 
 double a, b, c, P, S, p;
 
