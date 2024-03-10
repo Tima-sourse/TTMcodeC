@@ -1,35 +1,37 @@
 #include <stdio.h>
-#include <windows.h>
 #include <malloc.h>
-
-double *matrx1;
-double *matrx2;
-int n, i, j;
 
 int main()
 {
-    SetConsoleOutputCP(CP_UTF8);
-    matrx1 = (double*)malloc(n*n * sizeof(double));
-    matrx2 = (double*)malloc(n*n * sizeof(double));
-
-    printf("\nВведите элементы первой матрицы построчно:\n");
+    double* a;
+    int i, j, n;
+    printf("Введите порядок матрицы - ");
+    scanf("%d", &n);
+    
+    a = (double*)malloc(n * n * sizeof(double));
+  
+    printf("Введите элементы матрицы построчно:\n");
     for (i = 0; i < n; i++)
     {
         for (j = 0; j < n; j++)
         {
-            scanf("%lf", (matrx1+i*n+j));
+            scanf("%lf", (a + i * n + j));
         }
-        printf("--\n");
+    printf("--\n");
     }
-
-    printf("\nВведите элементы второй матрицы построчно:\n");
+  
+    printf("\nМатрица:\n");
     for (i = 0; i < n; i++)
-    {
+    {   
+        printf("|");
         for (j = 0; j < n; j++)
         {
-            scanf("%lf", (matrx1+i*n+j));
+            printf(" %5.2lf |", *(a + i * n + j));
         }
-        printf("--\n");
+    printf("\n");
     }
+    
+    free(a);
+    getchar();  getchar();
     return 0;
 }
