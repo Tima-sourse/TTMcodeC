@@ -12,7 +12,6 @@ int main()
 
     while (fgets(str, 64, F_in) != NULL)
     {   
-        printf("%s", str);
         for (i = 0; i < 65; i++)
         {
             if ((str[i] == '1') && (str[i + 1] == '9'))
