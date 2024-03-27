@@ -13,50 +13,47 @@ struct human
 int main()
 {
     SetConsoleCP(CP_UTF8);
-    int i,j;
-    struct human in[4];
-    struct human out[4];
+    int i, j, n=4, k;
+    struct human num[4];
     char str[100];
-    char fname[40], lname[40], Sdate[40];
-    int sortdate=2024, sortsup, sortdatesup=1900;
+    char fname[40], lname[40], date[40], sortsup[40];
     FILE *F_in = fopen("in.txt", "rt"), *F_out = fopen("out.txt", "wt");
 
-    for (i=0; i < 4; i++)
+    for (i = 0; i < 4; i++)
     {
         if (fgets(str, 100, F_in) != NULL)
         {
-            sscanf(str, "%s %s %s", fname, lname, Sdate);
-            strcpy(in[i].firstname, fname);
-            strcpy(in[i].lastname, lname);
-            strcpy(in[i].date, Sdate);
+            sscanf(str, "%s %s %s", fname, lname, date);
+            strcpy(num[i].firstname, fname);
+            strcpy(num[i].lastname, lname);
+            strcpy(num[i].date, date);
         }
     }
-    
-    for (i=0; i<4; i++)
-    {
-        for (j=0; j<4; j++)
-        {
-            if ((atoi(in[j].date) < sortdate) && (atoi(in[j].date) > sortdatesup))
-            {
-                sortdate = atoi(in[j].date);
-                sortsup = j;
-            }
-        }   
-        sortdatesup = sortdate;
-        sortdate = 2024;
 
-        strcpy(out[i].firstname, in[sortsup].firstname);
-        strcpy(out[i].lastname, in[sortsup].lastname);
-        strcpy(out[i].date, in[sortsup].date);
+    while(n > 1) // Бабл сортировка
+    {
+        k=0;
+        for (i = 1; i < n; ++i)
+        {
+            if (atoi(num[i].date) < atoi(num[i-1].date))
+            {
+                strcpy(sortsup, num[i].date);
+                strcpy(num[i].date, num[i-1].date);
+                strcpy(num[i].lastname, num[i-1].lastname);
+                strcpy(num[i].firstname, num[i-1].firstname);
+                strcpy(num[i-1].date, sortsup);
+                k=i;
+            }
+        }
+        n=k;
     }
 
     for (i = 0; i < 4; i++)
-    {   
-        fprintf(F_out, "%s %s %s\n", out[i].firstname, out[i].lastname, out[i].date);
+    {
+        fprintf(F_out, "%s %s %s\n", num[i].firstname, num[i].lastname, num[i].date);
     }
 
     fclose(F_in);
     fclose(F_out);
     return 0;
-    
 }
