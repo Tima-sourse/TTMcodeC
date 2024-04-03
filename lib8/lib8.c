@@ -5,16 +5,16 @@
 
 int comp(const void *a, const void *b);
 
-typedef struct 
+struct humen
 {
     char firstname[40];
     char lastname[40];
     int date;
     char gender[1];
     float height;
-}   humen;
+};
 
-humen people[10];
+struct humen people[10];
 
 
 int num_factors, factors[5], comparison;
@@ -49,7 +49,7 @@ int main()
         getchar();
     }
 	
-	qsort(people, i, sizeof(humen), comp);
+	qsort(people, i, sizeof(struct humen), comp);
 
     
     for(j = 0; j < i; j++) 
@@ -63,8 +63,8 @@ int main()
 
 int comp(const void *a, const void *b)
 {
-    humen *person_a = (humen *)a;
-    humen *person_b = (humen *)b;
+    struct humen *person_a = (struct humen *)a;
+    struct humen *person_b = (struct humen *)b;
     int i;
     for (i = 0; i < num_factors; i++)
     {
