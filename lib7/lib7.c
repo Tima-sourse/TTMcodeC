@@ -13,24 +13,19 @@ struct human
 int main()
 {
     SetConsoleCP(CP_UTF8);
-    int i, j, n=4, k;
+    int i, j, n=0, k;
     struct human num[4];
     char str[100];
     char fname[40], lname[40], date[40], sortsup[40];
     FILE *F_in = fopen("in.txt", "rt"), *F_out = fopen("out.txt", "wt");
 
-    for (i = 0; i < 4; i++)
+    while (fscanf(F_in, "%s %s %s", num[n].firstname, num[n].lastname, num[n].date) != EOF)
     {
-        if (fgets(str, 100, F_in) != NULL)
-        {
-            sscanf(str, "%s %s %s", fname, lname, date);
-            strcpy(num[i].firstname, fname);
-            strcpy(num[i].lastname, lname);
-            strcpy(num[i].date, date);
-        }
+        n++;
     }
 
-    while(n > 1) // Бабл сортировка
+
+    while(j > 1) // Бабл сортировка
     {
         k=0;
         for (i = 1; i < n; ++i)
@@ -45,10 +40,10 @@ int main()
                 k=i;
             }
         }
-        n=k;
+        j=k;
     }
 
-    for (i = 0; i < 4; i++)
+    for (i = 0; i < n; i++)
     {
         fprintf(F_out, "%s %s %s\n", num[i].firstname, num[i].lastname, num[i].date);
     }
