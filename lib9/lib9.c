@@ -23,10 +23,18 @@ int main()
             strcpy(leksema_str, "");
             j = 0;
             
-            if (str[i] == '-' && operand != -1) 
+            if (str[i] == '-' && str[i - 1] == '-')
+            {
+                operand = 1;
+            }
+            else if (str[i] == '-' && str[i - 2] == '-' && str[i - 1] == ' ')
+            {
+                operand = 1;
+            }
+            else if (str[i] == '-') 
             {
                 operand = -1;
-            } 
+            }
             else 
             {
                 operand = 1;
