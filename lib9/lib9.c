@@ -6,35 +6,35 @@
 int main()
 {
     SetConsoleOutputCP(CP_UTF8);
-    char str[100], leksema_str[20], operand;
+    char str[100], leksema_str[20];
     float res = 0;
-    char *leksema_p;
+    int j = 0;
+    int operand = 1; 
 
     printf("Введите вычисляемое выражение: ");
     fgets(str, sizeof(str), stdin);
     
-    leksema_p = strtok(str, " ");
-    strcpy(leksema_str, leksema_p);
-    res += atof(leksema_str);
-
-    while (leksema_p != NULL)
-    {
-        leksema_p = strtok(NULL, " ");
-        if (leksema_p != NULL)
+    for (int i = 0; i <= strlen(str); i++)
+    {   
+        if (str[i] == '+' || str[i] == '-' || str[i] == '\0')
         {
-            strcpy(leksema_str, leksema_p);
-            if (strlen(leksema_str) == 1)
+            leksema_str[j] = '\0';
+            res += operand * atof(leksema_str);
+            strcpy(leksema_str, "");
+            j = 0;
+            
+            if (str[i] == '-' && operand != -1) 
             {
-                operand = leksema_str[0];
-            }
-            else if(operand == '+')
+                operand = -1;
+            } 
+            else 
             {
-                res += atof(leksema_str);
+                operand = 1;
             }
-            else if(operand == '-')
-            {
-                res -= atof(leksema_str);
-            }
+        }
+        else
+        {
+            leksema_str[j++] = str[i];
         }
     }
 
