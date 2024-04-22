@@ -1,26 +1,39 @@
 #include <stdio.h>
-#include <windows.h>
+#include <stdlib.h>
 
-#define MAX_NUM(x,y) ((x) > (y) ? (x) : (y))
+#define MAX_ARRAY(arr, len) ({ \
+    double _max = arr[0]; \
+    for (int _i = 1; _i < len; _i++) { \
+        if (arr[_i] > _max) { \
+            _max = arr[_i]; \
+        } \
+    } \
+    _max; \
+})
 
-int main()
-{   
-    char *num_P;
+int main() {
+    double num_arr[50];
+    int count = 0;
     char str[100];
-    float max, num;
+    char *str_p = str;
 
-    printf("Введите числа для сравнения: ");
+    printf("Введите числа для сравнения (через пробел): ");
     fgets(str, sizeof(str), stdin);
-    num_P = strtok(str, " ");
-    max = atof(num_P);
-    while(num_P != NULL)
+
+    while (*str_p != '\0') 
     {
-        num = atof(num_P);
-        max = MAX_NUM(max, num);
-        num_P = strtok(NULL, " ");
+        char *stop;
+        double num = strtod(str_p, &stop);
+        if (str_p == stop) 
+        {
+            break;
+        }
+        num_arr[count++] = num;
+        str_p = stop;
     }
 
-    printf("Максимальное число: %.2f", max);
+    double max_num = MAX_ARRAY(num_arr, count);
+    printf("Максимальное число: %.2f\n", max_num);
 
     return 0;
 }
